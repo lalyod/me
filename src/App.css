@@ -1,1 +1,61 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in {
+  animation: fadein 1s forwards;
+}
+
+@keyframes slideleft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.slide-left {
+  animation: slideleft 1s forwards;
+}
+
+@keyframes typepulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.type-pulse {
+  animation: typepulse 1s infinite;
+}
+
+@keyframes popin {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.pop-in {
+  animation: popin 0.5s forwards;
+}

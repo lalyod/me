@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import NavLink from './NavLink'
+import NavGroup from './NavGroup'
+import Container from '@components/Container'
+import clsx from 'clsx'
 
 const ThemeSwitcher = () => {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(false)
 
   useEffect(() => {
-    const isClassDark = document.documentElement.classList.contains("dark");
-    const isPreferDark = localStorage.getItem("theme");
+    const isClassDark = document.documentElement.classList.contains('dark')
+    const isPreferDark = localStorage.getItem('theme')
     if (isClassDark && !isPreferDark) {
-      setDark(true);
+      setDark(true)
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    document.documentElement?.classList.toggle("dark");
-  }, [dark]);
+    document.documentElement?.classList.toggle('dark')
+  }, [dark])
+
   return (
     <span
       className="transtion duration-300 ease-in-out cursor-pointer fill-gray-500 hover:fill-black dark:hover:fill-white"
@@ -40,24 +45,43 @@ const ThemeSwitcher = () => {
         </svg>
       )}
     </span>
-  );
-};
+  )
+}
 
 const Header = () => {
-  return (
-    <header className="bg-white dark:bg-slate-800 shadow-xl w-full sticky py-4 rounded-xl">
-      <nav className="flex justify-between mx-10">
-        <ul className="flex items-center font-semibold gap-5 justify-center">
-          <li>
-            <Link to="#" className="dark:text-white">
-              Welcome Traveler
-            </Link>
-          </li>
-        </ul>
-        <ThemeSwitcher />
-      </nav>
-    </header>
-  );
-};
+  const [isScroll, setIsScroll] = useState<boolean>(false)
 
-export default Header;
+  const handleScroll = () => {
+    if (scrollY > 100) {
+      setIsScroll(true)
+    } else {
+      setIsScroll(false)
+    }
+  }
+
+  useEffect(() => {
+    addEventListener('scroll', handleScroll)
+    return () => {
+      removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  return (
+    <header
+      className={clsx(
+        'z-50 sticky top-0 py-4 transition-all duration-300',
+        isScroll && 'bg-white shadow-lg'
+      )}
+    >
+      <Container>
+        <NavGroup>
+          <NavLink to="/" name="Home" />
+          <NavLink to="/projects" name="Projects" />
+          <NavLink to="/photos" name="Photos" />
+        </NavGroup>
+      </Container>
+    </header>
+  )
+}
+
+export default Header
