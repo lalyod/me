@@ -7,16 +7,15 @@ const About = () => {
       <div className="w-1/2 shrink-0">
         <h3 className="fade-in mb-2 text-3xl">About</h3>
         <p className="fade-in">
-          I am Muhamad Pradita Adiantama, i used to be called Pradita, Adir, or
-          also Lyod. I was born in small city in Indonesia. When i was in 3
-          grade student my father gave me Nokia phone. And that's when i played
-          my first game on it. I remember when i was playing the game i always
-          said to my friend "Only if i can make my own game, i will make it
-          better than this". then when i was in high school i choose to be
-          Computer And Network Engineer to learn code. after i graduate i made
-          my first game with my teachers its called{' '}
-          <a>"Si Jibi Belajar Pajak"</a> and work as Fullstack Developer at "PT.
-          Fintek Digital Nusantara".
+          Hi, I’m <b>Pradita Adiantama</b>, though some people also call me <b>Pradita</b>, <b>Adit</b>, or <b>Lyod</b>. I grew up in a small city in Indonesia, and one of my earliest memories is 
+          when my dad gave me my first Nokia phone in third grade. I started playing games on it and remember telling my friends, <i>“If I could make my own game, I would
+          make it better than this.”</i> That little spark stuck with me.
+          <br/>
+          When I got to high school, I decided to follow that spark and studied <b>Computer and Network Engineering</b> to learn how to code. 
+          After graduation, I got the chance to create my first game with my teachers, called “<b>Si Jibi Belajar Pajak</b>”, which was an incredible learning experience.
+          <br/>
+          Today, I work as a <b>Fullstack Developer at PT. Fintek Digital Nusantara</b>, where I get to build digital solutions every day. Looking back, it all started 
+          with that simple Nokia game, and my passion for creating and improving things continues to drive me forward.
         </p>
       </div>
       <div className=" w-1/2 shrink-0 flex justify-center items-center">
