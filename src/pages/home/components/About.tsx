@@ -3,8 +3,11 @@ import me from '../../../assets/images/me.jpg'
 
 const About = () => {
   return (
-    <div id="about" className="py-10 flex items-center gap-5 lg:gap-10">
-      <div className="w-1/2 shrink-0">
+    <div
+      id="about"
+      className="py-10 flex flex-col lg:flex-row items-center gap-20 lg:gap-10"
+    >
+      <div className="lg:w-1/2 shrink-0">
         <h3 className="fade-in text-3xl">About Me</h3>
         <br />
         <p className="fade-in">
@@ -35,7 +38,7 @@ const About = () => {
           things continues to drive me forward.
         </p>
       </div>
-      <div className=" w-1/2 shrink-0 flex justify-center items-center">
+      <div className="lg:w-1/2 shrink-0 flex justify-center items-center">
         <div className="group relative perspective-[600px] w-72 h-80">
           <div className="peer/tl z-10 w-1/2 h-1/2 absolute top-0 left-0" />
           <div className="peer/tr z-10 w-1/2 h-1/2 absolute top-0 right-0" />
