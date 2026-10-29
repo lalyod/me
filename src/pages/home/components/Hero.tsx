@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.5fr_1fr]">
           <div>
             <span className="mb-4 inline-block -skew-x-12 bg-zzz px-3 py-0.5 font-display text-sm uppercase tracking-widest text-ink">
-              Fullstack Developer
+              IT Professional
             </span>
             <h1 className="font-display text-6xl uppercase leading-none sm:text-7xl lg:text-8xl">
               <motion.span

@@ -40,11 +40,8 @@ const About = () => {
               incredible learning experience.
             </p>
             <p>
-              Today, I work as a{' '}
-              <b className="text-p3">
-                Fullstack Developer at PT. Fintek Digital Nusantara
-              </b>
-              , where I get to build digital solutions every day. Looking back,
+              Today, I'm an <b className="text-p3">IT Professional</b> who loves
+              building digital solutions. Looking back,
               it all started with that simple Nokia game, and my passion for
               creating and improving things continues to drive me forward.
             </p>
