@@ -1,0 +1,53 @@
+/* Persona-style dark skin for Decap CMS (pinned 3.17.1).
+   Colours: invert the whole page once, so every screen (modals, dropdowns, preview) is
+   consistently dark. Decap's blue (#3a69c7) inverts to orange, and the -46deg hue turn
+   makes it the site's red. Picture content is flipped back so it keeps its real colours.
+   Shapes and type below are set in Decap's original light colours, so they get inverted too.
+   Decap's class names are emotion labels (css-<hash>-<Label>); re-check after upgrading. */
+html {
+  filter: invert(1) hue-rotate(-46deg);
+}
+/* Leaf pictures only: flipping a wrapper and its <img> would invert twice.
+   Grid-card thumbnails are a div with a background-image. The preview pane is an
+   iframe, so it gets the same rule from preview.css. */
+img,
+video,
+[class$="-StyledImage"],
+[class*="-StyledImage "] {
+  filter: hue-rotate(46deg) invert(1);
+}
+
+body {
+  font-family: "Rubik", system-ui, sans-serif !important;
+}
+::selection {
+  background: #3a69c7;
+  color: #fff;
+}
+
+/* square corners everywhere, hard offset shadow instead of soft ones */
+#nc-root :is(button, a, input, textarea, select, [class*="-ListCard"], [class*="-GridCard"], [class*="-SidebarContainer"], [class*="-FieldLabel"], [class*="-StyledModal"], [class*="-ControlContainer"]) {
+  border-radius: 0 !important;
+}
+#nc-root :is([class$="-ListCard"], [class*="-ListCard "], [class$="-GridCard"], [class*="-GridCard "], [class$="-SidebarContainer"], [class*="-SidebarContainer "]) {
+  box-shadow: 6px 6px 0 #3a69c7 !important;
+}
+
+/* Anton, uppercase for headings, nav and buttons */
+#nc-root :is([class*="-CollectionTopHeading"], [class*="-SidebarHeading"], [class*="-ListCardTitle"], [class*="-AppHeaderNavLink"], [class*="-SidebarNavLink"], [class*="-FieldLabel"], [class*="-ToolbarSectionBackLink"], [class*="-CollectionTopNewButton"], [class*="-SaveButton"], [class*="-PublishButton"], [class*="-LoginButton"], [class*="-StyledButtonPrimary"]) {
+  font-family: "Anton", Impact, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* primary buttons get a hard offset shadow */
+#nc-root :is([class*="-CollectionTopNewButton"], [class*="-SaveButton"], [class*="-PublishButton"], [class*="-LoginButton"], [class*="-StyledButtonPrimary"]) {
+  box-shadow: 4px 4px 0 #000 !important;
+}
+
+/* login logo */
+#nc-root :is([class$="-CustomIconWrapper"], [class*="-CustomIconWrapper "]) img {
+  width: 140px;
+  height: auto;
+}

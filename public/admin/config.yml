@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: lalyod/me
+  branch: main
+
+# Lets `npx decap-server` edit local files with no login (ignored in production).
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+logo_url: /favicon.svg
+
+collections:
+  - name: content
+    label: Site content
+    files:
+      - name: projects
+        label: Projects
+        file: src/content/projects.json
+        format: json
+        fields:
+          - label: Projects
+            name: items
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Thumbnail, name: thumbnail, widget: image }
+              - { label: Excerpt, name: excerpt, widget: text }
+              - label: Tags
+                name: tags
+                widget: list
+                field: { label: Tag, name: tag, widget: string }
+      - name: photos
+        label: Photos
+        file: src/content/photos.json
+        format: json
+        fields:
+          - label: Photos
+            name: items
+            widget: list
+            summary: '{{fields.caption}}'
+            fields:
+              - { label: Photo, name: src, widget: image }
+              - { label: Caption, name: caption, widget: string }

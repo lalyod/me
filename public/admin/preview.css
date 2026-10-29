@@ -1,0 +1,6 @@
+/* Runs inside Decap's preview iframe. The admin page inverts everything (see admin.css),
+   so pictures are flipped back here to keep their real colours. */
+img,
+video {
+  filter: hue-rotate(46deg) invert(1);
+}
