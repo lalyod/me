@@ -46,6 +46,7 @@ const Header = () => {
             <NavLink to="/" name="Home" />
             <NavLink to="/projects" name="Projects" />
             <NavLink to="/photos" name="Photos" />
+            <NavLink to="/contact" name="Contact" />
           </NavGroup>
           <div className="flex items-center gap-2 max-md:order-last">
             <SoundToggle
