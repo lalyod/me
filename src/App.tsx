@@ -3,6 +3,7 @@ import { MotionConfig } from 'framer-motion'
 import Home from './pages/home'
 import Projects from './pages/Projects'
 import Photos from './pages/Photos'
+import Credits from './pages/Credits'
 import LayoutDefault from './layout/default'
 import NotFound from './pages/NotFound'
 
@@ -15,7 +16,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="projects" element={<Projects />} />
             <Route path="photos" element={<Photos />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="credits" element={<Credits />} />
+            <Route path="*"element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
