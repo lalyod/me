@@ -8,6 +8,9 @@ import TailwindIcon from '../../../assets/svgs/tailwind.svg'
 import VueIcon from '../../../assets/svgs/vue.svg'
 import LaravelIcon from '../../../assets/svgs/laravel.svg'
 import MongoIcon from '../../../assets/svgs/mongodb.svg'
+import Container from '@components/Container'
+import Reveal from '@components/common/Reveal'
+import SectionTitle from '@components/common/SectionTitle'
 
 const TechStack = () => {
   const logos = [
@@ -24,28 +27,36 @@ const TechStack = () => {
   ]
 
   return (
-    <div className="py-20 space-y-15">
-      <div className="text-center w-full">
-        <h3 className="mb-2 text-3xl">Tech Stack</h3>
-        <p className="text-zinc-600">
-          Like i said i love to learn new things, so here is my tech stack that
-          i have used
-        </p>
-      </div>
+    <section className="overflow-hidden py-20">
+      <Container>
+        <SectionTitle tone="zzz">Tech Stack</SectionTitle>
+        <Reveal delay={0.2}>
+          <p className="mt-4 max-w-xl text-paper/70">
+            Like i said i love to learn new things, so here is my tech stack
+            that i have used
+          </p>
+        </Reveal>
+      </Container>
 
-      <div className="overflow-hidden">
-        <div className="flex items-center gap-10 marquee">
-          {[...logos, ...logos].map((logo, index) => (
-            <img
-              key={`${logo.alt}-${index}`}
-              src={logo.src}
-              alt={logo.alt}
-              className="h-15 w-15 min-w-[60px]"
-            />
-          ))}
+      <Reveal className="mt-12 -rotate-1 scale-105">
+        <div className="hazard h-3" />
+        <div className="scanlines overflow-hidden bg-zzz/10 py-4">
+          {/* w-max so -50% is exactly one copy of the list; padding (not gap) keeps the loop seamless */}
+          <div className="marquee flex w-max hover:[animation-play-state:paused]">
+            {[...logos, ...logos].map((logo, index) => (
+              <div key={`${logo.alt}-${index}`} className="shrink-0 px-5">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="clip-slash h-16 w-16 bg-paper p-2 transition-transform hover:scale-125"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+        <div className="hazard h-3" />
+      </Reveal>
+    </section>
   )
 }
 

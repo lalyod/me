@@ -2,8 +2,8 @@ import { FC, PropsWithChildren } from 'react'
 
 const NavGroup: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <nav>
-      <ul className="flex gap-7 items-center">{children}</ul>
+    <nav aria-label="Main">
+      <ul className="flex gap-1 items-center md:gap-4">{children}</ul>
     </nav>
   )
 }

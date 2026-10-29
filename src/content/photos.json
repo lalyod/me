@@ -1,0 +1,25 @@
+﻿{
+  "items": [
+    { "src": "/uploads/me.jpg", "caption": "Me" },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/2560px-Placeholder_view_vector.svg.png",
+      "caption": "Photo 02"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/2560px-Placeholder_view_vector.svg.png",
+      "caption": "Photo 03"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/2560px-Placeholder_view_vector.svg.png",
+      "caption": "Photo 04"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/2560px-Placeholder_view_vector.svg.png",
+      "caption": "Photo 05"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/2560px-Placeholder_view_vector.svg.png",
+      "caption": "Photo 06"
+    }
+  ]
+}

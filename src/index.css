@@ -1,18 +1,145 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-ink: #0a0a0a;
+  --color-paper: #f4f1ea;
+  --color-p5: #e60012;
+  --color-p3: #3ad0ff;
+  --color-p3-deep: #0a1a3a;
+  --color-zzz: #f6ff00;
+  --font-display: "Anton", Impact, sans-serif;
+  --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-ink text-paper font-sans;
+  }
+  ::selection {
+    background: var(--color-p5);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-zzz);
+    outline-offset: 3px;
+  }
+}
 
 @layer utilities {
+  /* P5: jagged cut-out shapes */
+  .clip-slash {
+    clip-path: polygon(3% 0, 100% 6%, 97% 100%, 0 94%);
+  }
+  .clip-card {
+    clip-path: polygon(0 2%, 8% 0, 100% 1%, 98% 100%, 5% 98%, 0 100%);
+  }
+  /* P3: angled section band */
+  .clip-band {
+    clip-path: polygon(0 2.5rem, 100% 0, 100% calc(100% - 2.5rem), 0 100%);
+  }
+  /* ZZZ: halftone dots (colour = text colour), hazard tape, CRT scanlines */
+  .halftone {
+    background-image: radial-gradient(currentColor 1.5px, transparent 1.7px);
+    background-size: 14px 14px;
+  }
+  .hazard {
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--color-zzz) 0 12px,
+      var(--color-ink) 12px 24px
+    );
+  }
+  .scanlines {
+    position: relative;
+  }
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgb(0 0 0 / 0.3) 0 1px,
+      transparent 1px 3px
+    );
+  }
+  /* ZZZ: RGB-split glitch, needs data-text="<same text>" */
+  .glitch {
+    position: relative;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: screen;
+    animation: glitch 3s steps(1) infinite;
+  }
+  .glitch::before {
+    color: var(--color-p3);
+  }
+  .glitch::after {
+    color: var(--color-p5);
+    animation-delay: 0.15s;
+  }
   .marquee {
-    animation: marquee 24s linear infinite;
+    animation: marquee 30s linear infinite;
+  }
+  .spin-slow {
+    animation: spin-slow 90s linear infinite;
+  }
+  .type-pulse {
+    animation: type-pulse 1s infinite;
   }
 }
 
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes type-pulse {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glitch {
+  0%,
+  88%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+  }
+  90% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-6px, 0);
+  }
+  93% {
+    clip-path: inset(55% 0 20% 0);
+    transform: translate(6px, 0);
+  }
+  96% {
+    clip-path: inset(80% 0 2% 0);
+    transform: translate(-3px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .spin-slow,
+  .type-pulse,
+  .glitch::before,
+  .glitch::after {
+    animation: none;
   }
 }
